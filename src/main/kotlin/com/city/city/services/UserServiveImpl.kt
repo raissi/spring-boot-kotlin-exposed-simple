@@ -22,7 +22,7 @@ class UserServiceImpl: UserService {
     override fun findAll() = repository.findAll()
     override fun deleteAll() = repository.deleteAll()
     override fun delete(firstName:String) =repository.delete(firstName)
-    override fun updateUser(u:Int,f:String)=repository.updateUser(u,f)
+    override fun updateUser(id:Int,firstName:String)=repository.updateUser(id,firstName)
     override fun findById(id:Int)=repository.findByid(id)
 
 

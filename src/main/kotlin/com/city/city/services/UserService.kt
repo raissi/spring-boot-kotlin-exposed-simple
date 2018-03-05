@@ -13,6 +13,6 @@ interface UserService {
 
     fun deleteAll(): Int
     fun delete(firstName: String): Int
-    fun updateUser(u: Int, f: String)
+    fun updateUser(id: Int, firstName: String)
     fun findById(id: Int): ResultRow?
 }

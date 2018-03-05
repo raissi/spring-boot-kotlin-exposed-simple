@@ -8,10 +8,10 @@ interface UserRepository{
 
 
     fun createTable()
-    fun create(m: User): User
+    fun create(user: User): User
     fun findAll(): List<User>
     fun deleteAll(): Int
     fun delete(firstName: String): Int
-    fun updateUser(id: Int, f: String)
+    fun updateUser(id: Int, firstName: String)
     fun findByid(id: Int): ResultRow?
 }

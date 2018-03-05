@@ -14,8 +14,8 @@ class UserController {
     lateinit var userService: UserService
     @PostMapping("/users")
             //@ResponseStatus(HttpStatus.CREATED)
-    fun create(@RequestBody u: User) {
-        userService.create(u)
+    fun create(@RequestBody user: User) {
+        userService.create(user)
 
 
     }
@@ -33,7 +33,7 @@ class UserController {
     fun deleteUser(@PathVariable  firstName: String)=userService.delete(firstName)
 
     @PutMapping("users/{id}")
-    fun updateUser(@PathVariable id: Int, @RequestBody f: String)=userService.updateUser(id,f)
+    fun updateUser(@PathVariable id: Int, @RequestBody firstName: String)=userService.updateUser(id,firstName)
 
 
 }

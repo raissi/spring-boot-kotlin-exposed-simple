@@ -16,10 +16,10 @@ class UserRepositoryImpl: UserRepository {
     override fun createTable() = SchemaUtils.create(Users)
 
 
-    private fun toRow(u: User): Users.(UpdateBuilder<*>) -> Unit = {
-        it[id]=u.id
-        it[firstName] = u.firstName
-        it[lastName] = u.lastName
+    private fun toRow(user: User): Users.(UpdateBuilder<*>) -> Unit = {
+        it[id]=user.id
+        it[firstName] = user.firstName
+        it[lastName] = user.lastName
 
 
     }
@@ -27,17 +27,17 @@ class UserRepositoryImpl: UserRepository {
     private fun fromRow(r: ResultRow) =
             User(r[Users.id],r[Users.firstName], r[Users.lastName])
 
-    override fun create(m: User): User {
-        Users.insert(toRow(m))
-        return m
+    override fun create(user: User): User {
+        Users.insert(toRow(user))
+        return user
     }
 
     override fun findAll() = Users.selectAll().map { fromRow(it) }
     override fun deleteAll() = Users.deleteAll()
     override fun delete(firstName: String) = Users.deleteWhere { Users.firstName like firstName }
 
-    override fun updateUser(id: Int, f: String) {
-        Users.update({ Users.id eq id }) { it[firstName] = f }
+    override fun updateUser(id: Int, name: String) {
+        Users.update({ Users.id eq id }) { it[firstName] = name }
 
     }
 
